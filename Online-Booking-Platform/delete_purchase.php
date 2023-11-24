@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-// Check if the user is logged in; if not, redirect to the login page or perform necessary authentication checks
 if (!isset($_SESSION['user_info'])) {
-    header("Location: no_purchase.php"); // Replace 'login.php' with your actual login page
+    header("Location: no_purchase.php");
     exit();
 }
 
@@ -25,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['purchase_id'])) {
         // Deletion failed
         $error = "Error: " . $stmt_delete->error;
     }
-    
     // Close the statement
     $stmt_delete->close();
 }

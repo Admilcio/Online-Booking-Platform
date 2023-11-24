@@ -45,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Insert failed
             $error = "Error: " . $stmt_insert->error;
         }
-
         // Close statements and the database connection
         $stmt_insert->close();
         $conn->close();

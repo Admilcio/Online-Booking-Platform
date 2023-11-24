@@ -1,9 +1,9 @@
 <?php 
 session_start();
 
-// Check if the user is logged in or not (you can modify this as needed)
+// Check if the user is logged in or not
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-  header("Location: login.php"); // Change this to your login page
+  header("Location: login.php"); 
   exit;
 }
 include_once "dbase.inc.php";

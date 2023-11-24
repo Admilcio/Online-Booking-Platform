@@ -3,12 +3,9 @@ session_start();
 
 include_once "dbase.inc.php";
 
-// Check if the request is a POST request
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Get the new date from the POST data
     $newDate = $_POST["date"];
-
-    // Perform data validation and sanitization as needed
 
     // Get the email of the logged-in user
     $email = $_SESSION['user_info']['email'];
@@ -25,8 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Error updating the date
         $response = ["success" => false, "message" => "Error updating date"];
     }
-
-    // Close the database connection
     $stmt->close();
     $conn->close();
 

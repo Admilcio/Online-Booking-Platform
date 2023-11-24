@@ -78,7 +78,6 @@
               $db_password = "";
               $database = "php_final_project";
 
-              // Create a new MySQLi connection
               $conn = new mysqli($servername, $username, $db_password, $database);
 
               // Check the connection
@@ -111,11 +110,7 @@
                   } else {
                       echo "This email does not exist. Please register.";
                   }
-
-                  // Close statements
                   $stmt_check->close();
-
-                  // Close the database connection
                   $conn->close();
               }
           }
