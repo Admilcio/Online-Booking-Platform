@@ -8,7 +8,7 @@ $phoneError = '';
 $dateError = '';
 // Check if the user is logged in or not (you can modify this as needed)
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-  header("Location: login.php"); // Change this to your login page
+  header("Location: login.php"); 
   exit;
 }
 
@@ -77,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn'])) {
           if (isset($_POST['self-defense'])) {
               $selectedClasses[] = "Self-Defense Against Multiple Attackers";
           }
-
           // Store the selected classes in the session
           $_SESSION['user_info']['selected_classes'] = $selectedClasses;
 
@@ -107,18 +106,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btn'])) {
               $stmt_update->bind_param("s", $email);
               
               if ($stmt_update->execute()) {
-                  // Successfully updated the has_bought_service flag
-                  // You can redirect the user to the data insertion page for `projetos` here
               } else {
                   // Update failed
                   $error = "Error: " . $stmt_update->error;
               }
               
-              // Close the statement
               $stmt_update->close();
-              // Close statements
               $stmt_insert->close();
-              // Close the database connection
               $conn->close();
           }
       } else {
